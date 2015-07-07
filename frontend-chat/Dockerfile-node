@@ -1,0 +1,7 @@
+FROM node:0.10-onbuild
+RUN mkdir /server
+ADD . /server
+WORKDIR /server
+RUN npm install
+ENTRYPOINT npm start
+EXPOSE 3000

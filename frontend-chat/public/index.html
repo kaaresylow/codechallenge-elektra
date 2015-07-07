@@ -1,0 +1,20 @@
+<html>
+	<head>
+	    <script src="javascripts/bundle.js"></script>
+	</head>
+	<body>
+		<div ng-app="chatApp" ng-controller="chatCtrl">
+			<ul>
+				<li ng-repeat = "message in messages">
+					{{message.content}}
+				</li>
+			</ul>
+			<p>Total messages: {{messageCount}}</p>
+			<p>Lates message: {{lastMessage}}</p>
+			<form ng-submit="postMessage()">
+				<input type="text" ng-model="newMessage"/>
+				<input type="submit"/>
+			</form>
+		</div>
+	</body>
+</html>

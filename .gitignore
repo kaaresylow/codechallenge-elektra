@@ -2,4 +2,4 @@ out/
 target/
 .idea/
 .DS_Store
-
+frontend-chat/node_modules/

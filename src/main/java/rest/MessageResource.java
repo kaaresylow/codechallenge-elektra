@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 
 @Component
@@ -16,16 +17,15 @@ public class MessageResource {
     @POST
     @Path("/names/{name}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ResponseMessage postMessage(@PathParam("name") String name) {
-        return messageService.saveMessage(name);
+    public Response postMessage(@PathParam("name") String name) {
+        return Response.ok(messageService.saveMessage(name)).header("Access-Control-Allow-Origin", "*").build();
     }
 
     @GET
     @Path("/recent")
     @Produces(MediaType.APPLICATION_JSON)
-    public ResponseRecent recentMessages(){
-        return messageService.getLatestMessages();
-
+    public Response recentMessages(){
+        return Response.ok(messageService.getLatestMessages()).header("Access-Control-Allow-Origin", "*").build();
     }
 
     @Autowired
